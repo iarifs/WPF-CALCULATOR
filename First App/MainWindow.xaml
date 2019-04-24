@@ -20,18 +20,7 @@
             <ColumnDefinition/>
             <ColumnDefinition Width="0*"/>
         </Grid.ColumnDefinitions>
-        <Border x:Name="Base" BorderBrush="#FF7C7474" BorderThickness="3" Grid.ColumnSpan="4" HorizontalAlignment="Left" Height="352" VerticalAlignment="Bottom" Width="201" Margin="198,0,0,54" RenderTransformOrigin="0.5,0.5" CornerRadius="10" Grid.RowSpan="3">
-            <Border.RenderTransform>
-                <TransformGroup>
-                    <ScaleTransform ScaleY="-1" ScaleX="1"/>
-                    <SkewTransform AngleY="0"/>
-                    <RotateTransform Angle="0"/>
-                    <TranslateTransform/>
-                </TransformGroup>
-            </Border.RenderTransform>
-            <Rectangle Fill="#FFEAEAEA" Stroke="#FF002C44" StrokeThickness="0" Margin="-3,203,-3,97"/>
-        </Border>
-        <Rectangle x:Name="Display" Grid.ColumnSpan="4" Fill="#FF002C44" HorizontalAlignment="Left" Height="116" VerticalAlignment="Top" Width="200" Margin="199,17,0,0" Stroke="#FF002C44" OpacityMask="#FF002C44" RadiusY="6" RadiusX="7" RenderTransformOrigin="0.5,0.5" Panel.ZIndex="-1">
+        <Rectangle x:Name="Display" Grid.ColumnSpan="4" Fill="#FF002C44" HorizontalAlignment="Left" Height="116" VerticalAlignment="Top" Width="203" Margin="197,18,0,0" Stroke="#FFFBFEFF" OpacityMask="#FF002C44" RadiusY="6" RadiusX="7" RenderTransformOrigin="0.5,0.5" Panel.ZIndex="-1">
             <Rectangle.RenderTransform>
                 <TransformGroup>
                     <ScaleTransform/>
@@ -42,7 +31,7 @@
             </Rectangle.RenderTransform>
         </Rectangle>
         <Button Content="AC" Style="{StaticResource RoundedButton}" HorizontalAlignment="Left" Margin="204,169,0,0" VerticalAlignment="Top" Width="41" RenderTransformOrigin="-0.004,0.283" Grid.Column="1" Panel.ZIndex="2" Height="35" FontFamily="Global User Interface" FontSize="16" FontWeight="Bold" BorderBrush="White" Background="#FFEAEAEA" Foreground="#FF0C0202" Grid.ColumnSpan="3"/>
-        <Rectangle Fill="#FFF9F9F9"  HorizontalAlignment="Left" Height="216" Margin="197,158,0,0" RadiusY="9.7" Stroke="#FFFBFEFF" VerticalAlignment="Top" Width="203" Panel.ZIndex="1" Grid.Column="1" RenderTransformOrigin="0.498,0.484" Grid.ColumnSpan="3" Grid.RowSpan="3"/>
+        <Rectangle  HorizontalAlignment="Left" Height="216" Margin="197,158,0,0" RadiusY="9.7" Stroke="#FFFBFEFF" VerticalAlignment="Top" Width="203" Panel.ZIndex="1" Grid.Column="1" RenderTransformOrigin="0.498,0.484" Grid.ColumnSpan="3" Grid.RowSpan="3" Fill="#FFF9F9F9"/>
         <Button Content="&lt;"  Style="{StaticResource RoundedButton}" HorizontalAlignment="Left" Margin="254,169,0,0" VerticalAlignment="Top" Width="41" RenderTransformOrigin="-0.004,0.283" Grid.Column="1" Panel.ZIndex="2" Height="35" FontFamily="Global User Interface" FontSize="20" FontWeight="Bold" BorderBrush="White" Background="#FFEAEAEA" Foreground="#FF0C0202" Click="Button_Click" Grid.ColumnSpan="3"/>
         <Button Content="%"   Style="{StaticResource RoundedButton}" HorizontalAlignment="Left" Margin="303,169,0,0" VerticalAlignment="Top" Width="41" RenderTransformOrigin="-0.004,0.283" Grid.Column="1" Panel.ZIndex="2" Height="35" FontFamily="Global User Interface" FontSize="16" FontWeight="Bold" BorderBrush="White" Background="#FFEAEAEA" Foreground="#FF0C0202" Grid.ColumnSpan="3"/>
         <Button Content="÷"  Style="{StaticResource RoundedButton}" HorizontalAlignment="Left" Margin="351,169,0,0" VerticalAlignment="Top" Width="41" RenderTransformOrigin="-0.004,0.283" Grid.Column="1" Panel.ZIndex="2" Height="35" FontFamily="Global User Interface" FontWeight="Bold" BorderBrush="{x:Null}" Background="#FFF8B71A" Foreground="#FF0C0202" FontSize="20" Grid.ColumnSpan="3"/>
@@ -61,6 +50,7 @@
         <Button Content="0"  Style="{StaticResource RoundedButton}" HorizontalAlignment="Left" Margin="204,108.5,0,0" VerticalAlignment="Top" Width="41" RenderTransformOrigin="-0.004,0.283" Grid.Column="1" Panel.ZIndex="2" Height="35" FontFamily="Global User Interface" FontSize="16" FontWeight="Bold" BorderBrush="White" Background="#FFEAEAEA" Foreground="#FF0C0202" Grid.ColumnSpan="3" Grid.RowSpan="2" Grid.Row="1"/>
         <Button Content="."  Style="{StaticResource RoundedButton}" HorizontalAlignment="Left" Margin="253,108.5,0,0" VerticalAlignment="Top" Width="41" RenderTransformOrigin="-0.004,0.283" Grid.Column="1" Panel.ZIndex="2" Height="35" FontFamily="Global User Interface" FontSize="16" FontWeight="Bold" BorderBrush="White" Background="#FFEAEAEA" Foreground="#FF0C0202" Grid.ColumnSpan="3" Grid.RowSpan="2" Grid.Row="1"/>
         <Button Content="="  Style="{StaticResource RoundedButton}" HorizontalAlignment="Left" Margin="303,108.5,0,0" VerticalAlignment="Top" Width="89" RenderTransformOrigin="-0.004,0.283" Grid.Column="1" Panel.ZIndex="2" Height="35" FontFamily="Global User Interface" FontSize="16" FontWeight="Bold" BorderBrush="{x:Null}" Background="#FF0D78F3" Foreground="#FF0C0202" Grid.ColumnSpan="3" Grid.RowSpan="2" Grid.Row="1"/>
+        <Border BorderBrush="#FFFBFEFF" BorderThickness="1,0,1,1" Grid.ColumnSpan="4" HorizontalAlignment="Left" Height="33" Margin="197,125,0,0" VerticalAlignment="Top" Width="203" Background="#FFDAD4D4"/>
 
     </Grid>
 </Window>
