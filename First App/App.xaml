@@ -10,12 +10,79 @@
             <Setter Property="Template">
                 <Setter.Value>
                     <ControlTemplate TargetType="Button">
-                        <Border CornerRadius="5" Background="{TemplateBinding Background}"
+                        <Grid x:Name="grid">
+                            <Border x:Name ="border" CornerRadius="5" Background="{TemplateBinding Background}"
+                                BorderThickness="1">
+                                <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center">
+
+                                </ContentPresenter>
+                            </Border>
+                        </Grid>
+                        <ControlTemplate.Triggers>
+                            <Trigger Property="IsPressed" Value="True">
+                                <Setter Property="Background" TargetName="border" Value="#b2bec3">
+
+                                </Setter>
+                            </Trigger>
+                            <Trigger Property="IsMouseOver" Value="True">
+                                <Setter Property="BorderBrush" TargetName="border" Value="#FFEAEAEA"/>
+                                <Setter Property="Cursor" TargetName="border" Value="Hand"/>
+                            </Trigger>
+                          
+                        </ControlTemplate.Triggers>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+        </Style>
+        <Style x:Key="Amber" TargetType="Button" BasedOn="{StaticResource RoundedButton}">
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="Button">
+                        <Border x:Name ="border" CornerRadius="5" Background="{TemplateBinding Background}"
                                 BorderThickness="1">
                             <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center">
 
                             </ContentPresenter>
                         </Border>
+                        <ControlTemplate.Triggers>
+                            <Trigger Property="IsPressed" Value="True">
+                                <Setter Property="Background" TargetName="border" Value="#fa8231">
+
+                                </Setter>
+                            </Trigger>
+                            <Trigger Property="IsMouseOver" Value="True">
+                                <Setter Property="BorderBrush" TargetName="border" Value="#FFF8B71A"/>
+                                <Setter Property="Cursor" TargetName="border" Value="Hand"/>
+                            </Trigger>
+                         
+                        </ControlTemplate.Triggers>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+        </Style>
+
+        <Style x:Key="Blue" TargetType="Button" BasedOn="{StaticResource RoundedButton}">
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="Button">
+                        <Border x:Name ="border" CornerRadius="5" Background="{TemplateBinding Background}"
+                                BorderThickness="1">
+                            <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center">
+
+                            </ContentPresenter>
+                        </Border>
+                        <ControlTemplate.Triggers>
+                            <Trigger Property="IsPressed" Value="True">
+                                <Setter Property="Background" TargetName="border" Value="#3867d6">
+
+                                </Setter>
+                            </Trigger>
+                            <Trigger Property="IsMouseOver" Value="True">
+                                <Setter Property="BorderBrush" TargetName="border" Value="#FF0D78F3"/>
+                                <Setter Property="Cursor" TargetName="border" Value="Help"/>
+                            </Trigger>
+                          
+                        </ControlTemplate.Triggers>
                     </ControlTemplate>
                 </Setter.Value>
             </Setter>
