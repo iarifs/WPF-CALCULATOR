@@ -4,6 +4,7 @@
              xmlns:local="clr-namespace:First_App"
              StartupUri="MainWindow.xaml">
     <Application.Resources>
+        <FontFamily x:Key="FontAwesome">/webfonts/fa-solid-900.ttf#Font Awesome 5 Free</FontFamily>
         <Style x:Key="RoundedButton" TargetType="Button">
             <Setter Property="Background" Value="Brown"/>
             <Setter Property="Foreground" Value="White" />

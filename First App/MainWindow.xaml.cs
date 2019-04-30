@@ -27,6 +27,24 @@ namespace First_App
 
         private void Button_Click(object sender, RoutedEventArgs e)
         {
+            
+        }
+
+        private void ButtonCaptured(object sender, RoutedEventArgs e)
+        {
+            var listOfInput = new List<string>();
+
+            var input = ((Button)sender).Tag;
+
+
+            //screen.Content = input;
+
+            listOfInput.Add(input.ToString());
+
+            foreach (var item in listOfInput)
+            {
+                screen.Content += item;
+            }
 
         }
     }
