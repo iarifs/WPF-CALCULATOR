@@ -13,6 +13,8 @@ using System.Windows.Media.Imaging;
 using System.Windows.Media.Animation;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using org.mariuszgromada.math.mxparser;
+using First_App.AppHelper;
 
 namespace First_App
 {
@@ -20,6 +22,7 @@ namespace First_App
     public partial class MainWindow : Window
     {
         private List<string> listOfInput = new List<string>();
+        private List<string> IgnoreChar = new List<string> { "=", "-", "+", "?", "`", "~" };
 
         public MainWindow()
         {
@@ -31,24 +34,37 @@ namespace First_App
         {
             int keyVal = (int)e.Key;
             int value = -1;
+
             if ((keyVal >= (int)Key.D0 && keyVal <= (int)Key.D9))
             {
                 value = (int)e.Key - (int)Key.D0;
             }
+
             else if (keyVal >= (int)Key.NumPad0 && keyVal <= (int)Key.NumPad9)
             {
                 value = (int)e.Key - (int)Key.NumPad0;
             }
+
             if (value != -1)
             {
-
                 ShowDigits(value.ToString());
             }
 
             if (keyVal == 2)
             {
                 RemoveChar();
-            };
+            }
+
+            else if (keyVal == 6 || keyVal == 8)
+            {
+                ShowDigits("=");
+            }
+
+            //getting the positive values
+            else if (keyVal == 141 || keyVal == 85)
+            {
+                ShowDigits("+");
+            }
 
         }
 
@@ -73,12 +89,22 @@ namespace First_App
 
         private void ShowDigits(string input)
         {
+            var displayedNumber = screen.Content.ToString().Count();
+
             if (screen.Content.ToString() == "0")
             {
                 screen.Content = "";
             }
 
-            if (listOfInput.Count >= 13)
+            if (input == "=" && listOfInput.Any())
+            {
+                var screenContent = screen.Content.ToString();
+
+                screen.Content = CalculateOperations.GetResult(screenContent);
+                listOfInput.Clear();
+            }
+
+            else if (displayedNumber >= 13)
             {
                 MessageBox.Show("Maximum Input exceed", "Input limit", MessageBoxButton.OK, MessageBoxImage.Stop);
             }
