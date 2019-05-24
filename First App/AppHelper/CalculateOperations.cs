@@ -7,13 +7,13 @@ using System.Threading.Tasks;
 
 namespace First_App.AppHelper
 {
-   public static class CalculateOperations
+    public static class CalculateOperations
     {
         public static string GetResult(string screenData)
         {
             Expression e = new Expression(screenData);
             return e.calculate().ToString();
         }
-       
+
     }
 }

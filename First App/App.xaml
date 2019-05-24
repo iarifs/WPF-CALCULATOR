@@ -29,7 +29,7 @@
                                 <Setter Property="BorderBrush" TargetName="border" Value="#FFEAEAEA"/>
                                 <Setter Property="Cursor" TargetName="border" Value="Hand"/>
                             </Trigger>
-                          
+
                         </ControlTemplate.Triggers>
                     </ControlTemplate>
                 </Setter.Value>
@@ -55,7 +55,24 @@
                                 <Setter Property="BorderBrush" TargetName="border" Value="#FFF8B71A"/>
                                 <Setter Property="Cursor" TargetName="border" Value="Hand"/>
                             </Trigger>
-                         
+
+                        </ControlTemplate.Triggers>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+        </Style>
+        <Style x:Key="noPress" TargetType="Button" BasedOn="{StaticResource RoundedButton}">
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="Button">
+                        <Border x:Name ="border" CornerRadius="5" Background="{TemplateBinding Background}"
+                                BorderThickness="1">
+                            <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center">
+
+                            </ContentPresenter>
+                        </Border>
+                        <ControlTemplate.Triggers>
+
                         </ControlTemplate.Triggers>
                     </ControlTemplate>
                 </Setter.Value>
@@ -82,7 +99,7 @@
                                 <Setter Property="BorderBrush" TargetName="border" Value="#FF0D78F3"/>
                                 <Setter Property="Cursor" TargetName="border" Value="Help"/>
                             </Trigger>
-                          
+
                         </ControlTemplate.Triggers>
                     </ControlTemplate>
                 </Setter.Value>

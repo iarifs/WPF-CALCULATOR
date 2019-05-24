@@ -76,7 +76,9 @@ namespace First_App
             {
                 RemoveChar();
             }
-            else if (input == "AC" && input.Length > 0)
+
+            else if (input == "AC" &&
+                input.Length > 0)
             {
                 listOfInput.Clear();
                 screen.Content = "0";
@@ -96,11 +98,27 @@ namespace First_App
                 screen.Content = "";
             }
 
-            if (input == "=" && listOfInput.Any())
+            if (input == "=" &&
+                listOfInput.Any())
             {
-                var screenContent = screen.Content.ToString();
 
-                screen.Content = CalculateOperations.GetResult(screenContent);
+
+                var screenContent = screen.Content.ToString().Replace("X", "*").Replace("mod", "#");
+
+                if (screen.Content.ToString().Contains("sqrt"))
+                {
+                    screenContent = screenContent.Replace("sqrt", "sqrt(") + ")";
+                }
+                if (input == "=" && menus.SelectedIndex == -1)
+                {
+                    var inputAsint = Convert.ToInt32(screen.Content);
+                    screen.Content = BinaryOperation.GetResult(inputAsint);
+                }
+                else
+                {
+                    screen.Content = CalculateOperations.GetResult(screenContent);
+                }
+
                 listOfInput.Clear();
             }
 
@@ -155,13 +173,58 @@ namespace First_App
 
             menuAnimation.Duration = new Duration(TimeSpan.FromSeconds(0.2));
             menus.BeginAnimation(WidthProperty, menuAnimation);
-
         }
 
         private void SwitchOperation(object sender, RoutedEventArgs e)
         {
+            var input = ((Button)sender).Tag.ToString();
+
+            if (input == Operations.Decimal.ToString())
+            {
+                NavigateMenu(sender, e);
+                Intial();
+                seletlist.Visibility = Visibility.Visible;
+            }
 
         }
 
+        private void Button_PreviewKeyDown(object sender, KeyEventArgs e)
+        {
+            ShowDigits("=");
+            e.Handled = true;
+        }
+
+        private void Intial()
+        {
+            List<string> allowedButtons =
+                new List<string>
+            {
+                "1","2","3","4","5","6","7","8","9","0","C","AC","=","int","menu","to"
+            };
+
+            foreach (var child in mainGrid.Children)
+            {
+                var button = child as Button;
+
+                if (button != null)
+                {
+                    if (!allowedButtons.Any(p => p == button.Tag.ToString()))
+                    {
+                        button.Visibility = Visibility.Collapsed;
+                    }
+                    if (button.Content.ToString() == "Int" ||
+                        button.Tag.ToString() == "to")
+                    {
+                        button.Visibility = Visibility.Visible;
+                    }
+                }
+            }
+        }
+
+        private void ChangeOption(object sender, SelectionChangedEventArgs e)
+        {
+            var selectedValue = (ComboBoxItem)(seletlist.SelectedItem);
+
+        }
     }
 }
