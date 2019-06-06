@@ -6,14 +6,10 @@ using System.Threading.Tasks;
 
 namespace First_App.AppHelper
 {
-    public enum Operations
+    public enum NumberSystem
     {
-        Percentage,
-        Decimal,
-        Weight,
-        Temperature,
-        Length,
-        File,
-        Time
+        Binary,
+        HexaDecimal,
+        Octal
     }
 }

@@ -24,6 +24,9 @@ namespace First_App
         private List<string> listOfInput = new List<string>();
         private List<string> IgnoreChar = new List<string> { "=", "-", "+", "?", "`", "~" };
 
+        private Operations CurrentMenu;
+        private NumberSystem ConvertionMethod;
+
         public MainWindow()
         {
             InitializeComponent();
@@ -91,6 +94,7 @@ namespace First_App
 
         private void ShowDigits(string input)
         {
+
             var displayedNumber = screen.Content.ToString().Count();
 
             if (screen.Content.ToString() == "0")
@@ -109,10 +113,11 @@ namespace First_App
                 {
                     screenContent = screenContent.Replace("sqrt", "sqrt(") + ")";
                 }
-                if (input == "=" && menus.SelectedIndex == -1)
+
+                if (input == "=" && CurrentMenu == Operations.Decimal)
                 {
                     var inputAsint = Convert.ToInt32(screen.Content);
-                    screen.Content = BinaryOperation.GetResult(inputAsint);
+                    screen.Content = BinaryOperation.GetResult(inputAsint, ConvertionMethod);
                 }
                 else
                 {
@@ -173,6 +178,7 @@ namespace First_App
 
             menuAnimation.Duration = new Duration(TimeSpan.FromSeconds(0.2));
             menus.BeginAnimation(WidthProperty, menuAnimation);
+
         }
 
         private void SwitchOperation(object sender, RoutedEventArgs e)
@@ -182,10 +188,17 @@ namespace First_App
             if (input == Operations.Decimal.ToString())
             {
                 NavigateMenu(sender, e);
-                Intial();
+                IntialForDecimal();
                 seletlist.Visibility = Visibility.Visible;
+                CurrentMenu = Operations.Decimal;
             }
-
+            else if (input == Operations.Percentage.ToString())
+            {
+                NavigateMenu(sender, e);
+                IntialForPercent();
+                seletlist.Visibility = Visibility.Visible;
+                CurrentMenu = Operations.Percentage;
+            }
         }
 
         private void Button_PreviewKeyDown(object sender, KeyEventArgs e)
@@ -194,7 +207,7 @@ namespace First_App
             e.Handled = true;
         }
 
-        private void Intial()
+        private void IntialForDecimal()
         {
             List<string> allowedButtons =
                 new List<string>
@@ -221,10 +234,41 @@ namespace First_App
             }
         }
 
+        private void IntialForPercent()
+        {
+            List<string> allowedButtons =
+               new List<string> { "1", "2", "3", "4", "5", "6", "7", "8", "9", "0", "C", "AC", "=", "." };
+
+            foreach (var child in mainGrid.Children)
+            {
+                var button = child as Button;
+
+                if (button != null)
+                {
+                    if (!allowedButtons.Any(p => p == button.Tag.ToString()))
+                    {
+                        button.Visibility = Visibility.Collapsed;
+                    }
+                }
+            }
+        }
+
         private void ChangeOption(object sender, SelectionChangedEventArgs e)
         {
-            var selectedValue = (ComboBoxItem)(seletlist.SelectedItem);
+            var selectedIndex = seletlist.SelectedIndex;
 
+            if (selectedIndex == 0)
+            {
+                ConvertionMethod = NumberSystem.Binary;
+            }
+            else if (selectedIndex == 1)
+            {
+                ConvertionMethod = NumberSystem.HexaDecimal;
+            }
+            else if (selectedIndex == 2)
+            {
+                ConvertionMethod = NumberSystem.Octal;
+            }
         }
     }
 }
