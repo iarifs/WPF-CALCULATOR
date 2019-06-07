@@ -35,8 +35,9 @@
         <Button Content="Mod" Tag=" mod " PreviewKeyDown="Button_PreviewKeyDown" Click="ButtonCaptured" Style="{StaticResource RoundedButton}" Margin="27,160,0,0" VerticalAlignment="Top" RenderTransformOrigin="-0.004,0.283" Grid.Column="1" Panel.ZIndex="2" Height="35" FontFamily="Global User Interface" FontSize="14" FontWeight="Bold" BorderBrush="White" Background="#FFEAEAEA" Foreground="#FF0C0202" Grid.ColumnSpan="3" HorizontalAlignment="Left" Width="41"/>
         <Button Content="Int" Tag="int" Visibility="Hidden" Style="{StaticResource noPress}" Margin="25,200,0,0" VerticalAlignment="Top" RenderTransformOrigin="-0.004,0.283" Grid.Column="3" Panel.ZIndex="2" Height="35" FontFamily="Global User Interface" FontSize="14" FontWeight="Bold" BorderBrush="White" Background="#FF002C44" Foreground="White" HorizontalAlignment="Left" Width="41" Grid.RowSpan="2"/>
         <Button Content="&#xf0a9;" Visibility="Hidden" Tag="to" Style="{StaticResource noPress}" HorizontalAlignment="Left" Margin="76,200,0,0" VerticalAlignment="Top" Width="41" RenderTransformOrigin="-0.004,0.283" Grid.Column="3" Panel.ZIndex="2" Height="35" FontFamily="/First App;component/webfonts/#Font Awesome 5 Free Solid" FontSize="16" FontWeight="Bold" BorderBrush="White" Background="#FFEAEAEA" Foreground="#FF0C0202" Grid.RowSpan="2"/>
+        <Button Content="&#xf0a9;" Visibility="Hidden" Tag="weight" Style="{StaticResource noPress}" HorizontalAlignment="Left" Margin="102,200,0,0" VerticalAlignment="Top" Width="41" RenderTransformOrigin="-0.004,0.283" Grid.Column="3" Panel.ZIndex="2" Height="35" FontFamily="/First App;component/webfonts/#Font Awesome 5 Free Solid" FontSize="16" FontWeight="Bold" BorderBrush="White" Background="#FFEAEAEA" Foreground="#FF0C0202" Grid.RowSpan="2"/>
         <Rectangle x:Name="bottom"  HorizontalAlignment="Left" Height="254" Margin="21,155,0,0" RadiusY="9.7" Stroke="#FFFBFEFF" VerticalAlignment="Top" Width="201" Panel.ZIndex="1" RenderTransformOrigin="0.498,0.484" Grid.RowSpan="3" Fill="#FFF9F9F9" Grid.ColumnSpan="2" Grid.Column="3"/>
-        <Button Content="&#xf698;" Tag="sqrt" PreviewKeyDown="Button_PreviewKeyDown"  Style="{StaticResource RoundedButton}" HorizontalAlignment="Left" Margin="76,198,0,0" VerticalAlignment="Top" Width="41" RenderTransformOrigin="-0.004,0.283" Panel.ZIndex="2" Height="35" FontFamily="/First App;component/webfonts/#Font Awesome 5 Free Solid" FontSize="16" FontWeight="Bold" BorderBrush="White" Background="#FFEAEAEA" Foreground="#FF0C0202"  Click="ButtonCaptured" Grid.Column="3" Grid.RowSpan="2"/>
+        <Button Tag="sqrt" Content="&#xf698;" PreviewKeyDown="Button_PreviewKeyDown"  Style="{StaticResource RoundedButton}" HorizontalAlignment="Left" Margin="76,198,0,0" VerticalAlignment="Top" Width="41" RenderTransformOrigin="-0.004,0.283" Panel.ZIndex="2" Height="35" FontFamily="/First App;component/webfonts/#Font Awesome 5 Free Solid" FontSize="16" FontWeight="Bold" BorderBrush="White" Background="#FFEAEAEA" Foreground="#FF0C0202"  Click="ButtonCaptured" Grid.Column="3" Grid.RowSpan="2"/>
         <Button Content="%"   PreviewKeyDown="Button_PreviewKeyDown" Click="ButtonCaptured" Tag=" % " Style="{StaticResource RoundedButton}" HorizontalAlignment="Left" Margin="126,199,0,0" VerticalAlignment="Top" Width="41" RenderTransformOrigin="-0.004,0.283" Grid.Column="1" Panel.ZIndex="2" Height="35" FontFamily="Global User Interface" FontSize="16" FontWeight="Bold" BorderBrush="White" Background="#FFEAEAEA" Foreground="#FF0C0202" Grid.ColumnSpan="4" Grid.RowSpan="2"/>
         <Button Content="÷"  PreviewKeyDown="Button_PreviewKeyDown" Click="ButtonCaptured" Tag="/" Style="{StaticResource Amber}" HorizontalAlignment="Left" Margin="27,199,0,0" VerticalAlignment="Top" Width="41" RenderTransformOrigin="-0.004,0.283" Grid.Column="4" Panel.ZIndex="2" Height="35" FontFamily="Global User Interface" FontWeight="Bold" BorderBrush="{x:Null}" Background="#FFF8B71A" Foreground="#FF0C0202" FontSize="20" Grid.RowSpan="2"/>
         <Button Content="7" PreviewKeyDown="Button_PreviewKeyDown" Click="ButtonCaptured" Tag="7" Style="{StaticResource RoundedButton}" HorizontalAlignment="Left" Margin="27,19,0,0" VerticalAlignment="Top" Width="41" RenderTransformOrigin="-0.004,0.283" Grid.Column="1" Panel.ZIndex="2" Height="35" FontFamily="Global User Interface" FontSize="16" FontWeight="Bold" BorderBrush="White" Background="#FFEAEAEA" Foreground="#FF0C0202" Grid.ColumnSpan="3" Grid.Row="1"/>
@@ -69,42 +70,119 @@
                 <Button Content="Percentage"  PreviewKeyDown="Button_PreviewKeyDown" Width="190" FontFamily="Segoe UI Black" Height="42" Cursor="Hand" Click="SwitchOperation" Tag="Percentage"/>
             </ListBoxItem>
             <ListBoxItem>
-            <Button Content="Decimal" PreviewKeyDown="Button_PreviewKeyDown" Width="190" FontFamily="Segoe UI Black" Height="42" Cursor="Hand"  Click="SwitchOperation" Tag="Decimal"/>
+                <Button Content="Decimal" PreviewKeyDown="Button_PreviewKeyDown" Width="190" FontFamily="Segoe UI Black" Height="42" Cursor="Hand"  Click="SwitchOperation" Tag="Decimal"/>
             </ListBoxItem>
             <ListBoxItem>
-            <Button Content="Weight" PreviewKeyDown="Button_PreviewKeyDown" Width="190" FontFamily="Segoe UI Black" Height="42" Cursor="Hand"  Click="SwitchOperation" Tag="Weight"/>
+                <Button Content="Weight" PreviewKeyDown="Button_PreviewKeyDown" Width="190" FontFamily="Segoe UI Black" Height="42" Cursor="Hand"  Click="SwitchOperation" Tag="Weight"/>
             </ListBoxItem>
             <ListBoxItem>
-            <Button Content="Temperature" PreviewKeyDown="Button_PreviewKeyDown" Width="190" FontFamily="Segoe UI Black" Height="42" Cursor="Hand"  Click="SwitchOperation" Tag="Temperature"/>
+                <Button Content="Temperature" PreviewKeyDown="Button_PreviewKeyDown" Width="190" FontFamily="Segoe UI Black" Height="42" Cursor="Hand"  Click="SwitchOperation" Tag="Temperature"/>
             </ListBoxItem>
             <ListBoxItem>
-            <Button Content="Length" PreviewKeyDown="Button_PreviewKeyDown" Width="190" FontFamily="Segoe UI Black" Height="42" Cursor="Hand"  Click="SwitchOperation" Tag="Length"/>
+                <Button Content="Length" PreviewKeyDown="Button_PreviewKeyDown" Width="190" FontFamily="Segoe UI Black" Height="42" Cursor="Hand"  Click="SwitchOperation" Tag="Length"/>
             </ListBoxItem>
             <ListBoxItem>
-            <Button Content="File Size" PreviewKeyDown="Button_PreviewKeyDown" Width="190" FontFamily="Segoe UI Black" Height="42" Cursor="Hand" Click="SwitchOperation" Tag="File"/>
+                <Button Content="File Size" PreviewKeyDown="Button_PreviewKeyDown" Width="190" FontFamily="Segoe UI Black" Height="42" Cursor="Hand" Click="SwitchOperation" Tag="File"/>
             </ListBoxItem>
             <ListBoxItem>
-            <Button Content="Time Covert" PreviewKeyDown="Button_PreviewKeyDown" Width="190" FontFamily="Segoe UI Black" Height="42" Cursor="Hand" Click="SwitchOperation" Tag="Time"/>
+                <Button Content="Time Covert" PreviewKeyDown="Button_PreviewKeyDown" Width="190" FontFamily="Segoe UI Black" Height="42" Cursor="Hand" Click="SwitchOperation" Tag="Time"/>
             </ListBoxItem>
         </ListBox>
-        <ComboBox  SelectedIndex="0" x:Name="seletlist" Grid.Column="3" Visibility="Hidden" HorizontalAlignment="Left" Margin="126,200,0,0" Width="94" Grid.ColumnSpan="2" Panel.ZIndex="2" FontFamily="Times New Roman" RenderTransformOrigin="0.495,0.5" Foreground="#FF002C44" SelectionChanged="ChangeOption" Height="33" VerticalAlignment="Top" Grid.RowSpan="2">
+
+        <ComboBox SelectedIndex="0" x:Name="percentOrDecimal" SelectionChanged="ChangeToDecimal" Grid.Column="3" Visibility="Hidden" HorizontalAlignment="Left" Margin="126,200,0,0" Width="94" Panel.ZIndex="2" FontFamily="Times New Roman" RenderTransformOrigin="0.495,0.5" Foreground="#FF002C44" Height="33" VerticalAlignment="Top" Grid.RowSpan="2" Grid.ColumnSpan="2">
             <ComboBox.Background>
                 <LinearGradientBrush EndPoint="0,1" StartPoint="0,0">
                     <GradientStop Color="#FFF0F0F0" Offset="0"/>
                     <GradientStop Color="White" Offset="1"/>
                 </LinearGradientBrush>
             </ComboBox.Background>
-            <ComboBoxItem Tag="Binary" Height="24" Background="#FF0D4AF0" Foreground="#FFF7F7F7">
+            <ComboBoxItem Tag="Percent" Height="24" Background="#FF0D4AF0" Foreground="#FFF7F7F7">
+                Percent
+            </ComboBoxItem>
+            <ComboBoxItem Tag="Decimal" Height="24" Background="#FFF73232">
+                Decimal
+            </ComboBoxItem>
+        </ComboBox>
+
+        <ComboBox  SelectedIndex="0" x:Name="seletlist" Grid.Column="3" Visibility="Hidden" HorizontalAlignment="Left" Margin="126,200,0,0" Width="94" Grid.ColumnSpan="2" Panel.ZIndex="2" FontFamily="Times New Roman" RenderTransformOrigin="0.495,0.5" Foreground="#FF002C44" SelectionChanged="ChangeToNumber" Height="33" VerticalAlignment="Top" Grid.RowSpan="2">
+            <ComboBox.Background>
+                <LinearGradientBrush EndPoint="0,1" StartPoint="0,0">
+                    <GradientStop Color="#FFF0F0F0" Offset="0"/>
+                    <GradientStop Color="White" Offset="1"/>
+                </LinearGradientBrush>
+            </ComboBox.Background>
+            <ComboBoxItem Tag="Binary" Height="24">
                 Binary
             </ComboBoxItem>
-            <ComboBoxItem Tag="HexaDecimal" Height="24" Background="#FFF73232">
+            <ComboBoxItem Tag="HexaDecimal" Height="24">
                 HexaDecimal
             </ComboBoxItem>
-            <ComboBoxItem Tag="Octal" Height="20" Background="#FFE8FF00">
+            <ComboBoxItem Tag="Octal" Height="20">
                 Octal
             </ComboBoxItem>
         </ComboBox>
 
+        <ComboBox  SelectedIndex="0" x:Name="Temperature" Grid.Column="3" Visibility="Hidden" HorizontalAlignment="Left" Margin="126,200,0,0" Width="94" Grid.ColumnSpan="2" Panel.ZIndex="2" FontFamily="Times New Roman" RenderTransformOrigin="0.495,0.5" Foreground="#FF002C44" SelectionChanged="ChangeTUnit" Height="33" VerticalAlignment="Top" Grid.RowSpan="2">
+            <ComboBox.Background>
+                <LinearGradientBrush EndPoint="0,1" StartPoint="0,0">
+                    <GradientStop Color="#FFF0F0F0" Offset="0"/>
+                    <GradientStop Color="White" Offset="1"/>
+                </LinearGradientBrush>
+            </ComboBox.Background>
+            <ComboBoxItem Tag="Celsius" Height="24">
+                Celsius
+            </ComboBoxItem>
+            <ComboBoxItem Tag="Fahrenheight" Height="24">
+                Fahrenheight
+            </ComboBoxItem>
+        </ComboBox>
 
+        <ComboBox  SelectedIndex="2" x:Name="FromWeight" Grid.Column="3" Visibility="Hidden" HorizontalAlignment="Left" Margin="25,199,0,0" Width="75" Panel.ZIndex="2" FontFamily="Times New Roman" RenderTransformOrigin="0.495,0.5" Foreground="#FF002C44" SelectionChanged="FromWeigthUnit" Height="35" VerticalAlignment="Top" Grid.RowSpan="2">
+            <ComboBox.Background>
+                <LinearGradientBrush EndPoint="0,1" StartPoint="0,0">
+                    <GradientStop Color="#FFF0F0F0" Offset="0"/>
+                    <GradientStop Color="White" Offset="1"/>
+                </LinearGradientBrush>
+            </ComboBox.Background>
+            <ComboBoxItem Tag="Milligram" Height="24">
+                Milligram
+            </ComboBoxItem>
+            <ComboBoxItem Tag="Gram" Height="24">
+                Gram
+            </ComboBoxItem>
+            <ComboBoxItem Tag="Kilogram" Height="20">
+                Kilogram
+            </ComboBoxItem>
+            <ComboBoxItem Tag="Ounce" Height="20">
+                Ounce
+            </ComboBoxItem>
+            <ComboBoxItem Tag="Pound" Height="20">
+                Pound
+            </ComboBoxItem>
+        </ComboBox>
+
+        <ComboBox  SelectedIndex="1" x:Name="ToWeight" Grid.Column="3" Visibility="Hidden" HorizontalAlignment="Left" Margin="144,200,0,0" Width="76" Panel.ZIndex="2" FontFamily="Times New Roman" RenderTransformOrigin="0.495,0.5" Foreground="#FF002C44" SelectionChanged="ToWeightUnit" Height="33" VerticalAlignment="Top" Grid.RowSpan="2" Grid.ColumnSpan="2">
+            <ComboBox.Background>
+                <LinearGradientBrush EndPoint="0,1" StartPoint="0,0">
+                    <GradientStop Color="#FFF0F0F0" Offset="0"/>
+                    <GradientStop Color="White" Offset="1"/>
+                </LinearGradientBrush>
+            </ComboBox.Background>
+            <ComboBoxItem Tag="Milligram" Height="24">
+                Milligram
+            </ComboBoxItem>
+            <ComboBoxItem Tag="Gram" Height="24">
+                Gram
+            </ComboBoxItem>
+            <ComboBoxItem Tag="Kilogram" Height="20">
+                Kilogram
+            </ComboBoxItem>
+            <ComboBoxItem Tag="Ounce" Height="20">
+                Ounce
+            </ComboBoxItem>
+            <ComboBoxItem Tag="Pound" Height="20">
+                Pound
+            </ComboBoxItem>
+        </ComboBox>
     </Grid>
 </Window>

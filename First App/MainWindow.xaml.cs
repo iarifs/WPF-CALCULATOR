@@ -24,8 +24,17 @@ namespace First_App
         private List<string> listOfInput = new List<string>();
         private List<string> IgnoreChar = new List<string> { "=", "-", "+", "?", "`", "~" };
 
-        private Operations CurrentMenu;
-        private NumberSystem ConvertionMethod;
+        private OperationsUnit CurrentMenu = OperationsUnit.Standard;
+
+        private NumberUnits ConvertionMethod;
+
+        private PercentUnits SelectPercent;
+
+        private WeightUnits FormMethod;
+
+        private WeightUnits ToMethod;
+
+        private TemperatureUnits SelectedTUnit;
 
         public MainWindow()
         {
@@ -105,8 +114,6 @@ namespace First_App
             if (input == "=" &&
                 listOfInput.Any())
             {
-
-
                 var screenContent = screen.Content.ToString().Replace("X", "*").Replace("mod", "#");
 
                 if (screen.Content.ToString().Contains("sqrt"))
@@ -114,14 +121,32 @@ namespace First_App
                     screenContent = screenContent.Replace("sqrt", "sqrt(") + ")";
                 }
 
-                if (input == "=" && CurrentMenu == Operations.Decimal)
+                if (input == "=")
                 {
-                    var inputAsint = Convert.ToInt32(screen.Content);
-                    screen.Content = BinaryOperation.GetResult(inputAsint, ConvertionMethod);
-                }
-                else
-                {
-                    screen.Content = CalculateOperations.GetResult(screenContent);
+                    if (CurrentMenu == OperationsUnit.Standard)
+                    {
+                        screen.Content = CalculateOperations.GetResult(screenContent);
+                    }
+
+                    else if (CurrentMenu == OperationsUnit.Decimal)
+                    {
+                        var inputAsint = Convert.ToInt32(screen.Content);
+                        screen.Content = BinaryOperation.GetResult(inputAsint, ConvertionMethod);
+                    }
+
+                    else if (CurrentMenu == OperationsUnit.Percentage)
+                    {
+                        screen.Content = PercentOperation.GetResult(screenContent, SelectPercent);
+                    }
+                    else if (CurrentMenu == OperationsUnit.Weight)
+                    {
+                        screen.Content = WeightOperations.GetResult(screenContent, FormMethod, ToMethod);
+                    }
+                    else if (CurrentMenu == OperationsUnit.Temperature)
+                    {
+                        screen.Content = TemperatureOperations.GetResult(screenContent, SelectedTUnit);
+                    }
+
                 }
 
                 listOfInput.Clear();
@@ -185,19 +210,39 @@ namespace First_App
         {
             var input = ((Button)sender).Tag.ToString();
 
-            if (input == Operations.Decimal.ToString())
+            seletlist.Visibility = Visibility.Collapsed;
+            percentOrDecimal.Visibility = Visibility.Collapsed;
+            ToWeight.Visibility = Visibility.Collapsed;
+            FromWeight.Visibility = Visibility.Collapsed;
+
+            if (input == OperationsUnit.Decimal.ToString())
             {
                 NavigateMenu(sender, e);
                 IntialForDecimal();
                 seletlist.Visibility = Visibility.Visible;
-                CurrentMenu = Operations.Decimal;
+                CurrentMenu = OperationsUnit.Decimal;
             }
-            else if (input == Operations.Percentage.ToString())
+            else if (input == OperationsUnit.Percentage.ToString())
             {
                 NavigateMenu(sender, e);
                 IntialForPercent();
-                seletlist.Visibility = Visibility.Visible;
-                CurrentMenu = Operations.Percentage;
+                percentOrDecimal.Visibility = Visibility.Visible;
+                CurrentMenu = OperationsUnit.Percentage;
+            }
+            else if (input == OperationsUnit.Weight.ToString())
+            {
+                NavigateMenu(sender, e);
+                IntialForWeight();
+                ToWeight.Visibility = Visibility.Visible;
+                FromWeight.Visibility = Visibility.Visible;
+                CurrentMenu = OperationsUnit.Weight;
+            }
+            else if (input == OperationsUnit.Temperature.ToString())
+            {
+                NavigateMenu(sender, e);
+                InitialForTemperature();
+                Temperature.Visibility = Visibility.Visible;
+                CurrentMenu = OperationsUnit.Temperature;
             }
         }
 
@@ -225,8 +270,7 @@ namespace First_App
                     {
                         button.Visibility = Visibility.Collapsed;
                     }
-                    if (button.Content.ToString() == "Int" ||
-                        button.Tag.ToString() == "to")
+                    if (button.Tag.ToString() == "to")
                     {
                         button.Visibility = Visibility.Visible;
                     }
@@ -237,7 +281,7 @@ namespace First_App
         private void IntialForPercent()
         {
             List<string> allowedButtons =
-               new List<string> { "1", "2", "3", "4", "5", "6", "7", "8", "9", "0", "C", "AC", "=", "." };
+               new List<string> { "1", "2", "3", "4", "5", "6", "7", "8", "9", "0", "C", "AC", "=", ".", "to", "menu" };
 
             foreach (var child in mainGrid.Children)
             {
@@ -249,25 +293,162 @@ namespace First_App
                     {
                         button.Visibility = Visibility.Collapsed;
                     }
+                    if (button.Tag.ToString() == "to" ||
+                        button.Tag.ToString() == "mode")
+                    {
+                        button.Visibility = Visibility.Visible;
+                    }
+                }
+
+            }
+        }
+
+        private void IntialForWeight()
+        {
+            List<string> allowedButtons =
+                 new List<string>
+                {
+                "1","2","3","4","5","6","7","8","9","0","C","AC","=","int","menu","weight","."
+                };
+
+            foreach (var child in mainGrid.Children)
+            {
+                var button = child as Button;
+
+                if (button != null)
+                {
+                    if (!allowedButtons.Any(p => p == button.Tag.ToString()))
+                    {
+                        button.Visibility = Visibility.Collapsed;
+                    }
+                    if (button.Tag.ToString() == "weight")
+                    {
+                        button.Visibility = Visibility.Visible;
+                    }
                 }
             }
         }
 
-        private void ChangeOption(object sender, SelectionChangedEventArgs e)
+        private void InitialForTemperature()
+        {
+            List<string> allowedButtons =
+                 new List<string>
+                {
+                "1","2","3","4","5","6","7","8","9","0","C","AC","=","menu","weight","."
+                };
+
+            foreach (var child in mainGrid.Children)
+            {
+                var button = child as Button;
+
+                if (button != null)
+                {
+                    if (!allowedButtons.Any(p => p == button.Tag.ToString()))
+                    {
+                        button.Visibility = Visibility.Collapsed;
+                    }
+                    if (button.Tag.ToString() == "to")
+                    {
+                        button.Visibility = Visibility.Visible;
+                    }
+                }
+            }
+        }
+
+        private void ChangeToNumber(object sender, SelectionChangedEventArgs e)
         {
             var selectedIndex = seletlist.SelectedIndex;
 
             if (selectedIndex == 0)
             {
-                ConvertionMethod = NumberSystem.Binary;
+                ConvertionMethod = NumberUnits.Binary;
             }
             else if (selectedIndex == 1)
             {
-                ConvertionMethod = NumberSystem.HexaDecimal;
+                ConvertionMethod = NumberUnits.HexaDecimal;
             }
             else if (selectedIndex == 2)
             {
-                ConvertionMethod = NumberSystem.Octal;
+                ConvertionMethod = NumberUnits.Octal;
+            }
+        }
+
+        private void ChangeToDecimal(object sender, SelectionChangedEventArgs e)
+        {
+            var selectedIndex = percentOrDecimal.SelectedIndex;
+
+            if (selectedIndex == 0)
+            {
+                SelectPercent = PercentUnits.Percent;
+            }
+            else if (selectedIndex == 1)
+            {
+                SelectPercent = PercentUnits.Decimal;
+            }
+        }
+
+        private void FromWeigthUnit(object sender, SelectionChangedEventArgs e)
+        {
+            var selectedIndex = FromWeight.SelectedIndex;
+
+            if (selectedIndex == 0)
+            {
+                FormMethod = WeightUnits.Milligrams;
+            }
+            else if (selectedIndex == 1)
+            {
+                FormMethod = WeightUnits.Grams;
+            }
+            else if (selectedIndex == 2)
+            {
+                FormMethod = WeightUnits.Kilograms;
+            }
+            else if (selectedIndex == 3)
+            {
+                FormMethod = WeightUnits.Ounces;
+            }
+            else if (selectedIndex == 4)
+            {
+                FormMethod = WeightUnits.Pounds;
+            }
+        }
+
+        private void ToWeightUnit(object sender, SelectionChangedEventArgs e)
+        {
+            var selectedIndex = ToWeight.SelectedIndex;
+
+            if (selectedIndex == 0)
+            {
+                ToMethod = WeightUnits.Milligrams;
+            }
+            else if (selectedIndex == 1)
+            {
+                ToMethod = WeightUnits.Grams;
+            }
+            else if (selectedIndex == 2)
+            {
+                ToMethod = WeightUnits.Kilograms;
+            }
+            else if (selectedIndex == 3)
+            {
+                ToMethod = WeightUnits.Ounces;
+            }
+            else if (selectedIndex == 4)
+            {
+                ToMethod = WeightUnits.Pounds;
+            }
+        }
+
+        private void ChangeTUnit(object sender, SelectionChangedEventArgs e)
+        {
+            var Tselected = Temperature.SelectedIndex;
+            if (Tselected == 0)
+            {
+                SelectedTUnit = TemperatureUnits.Celsius;
+            }
+            else if (Tselected == 1)
+            {
+                SelectedTUnit = TemperatureUnits.Fahrenheit;
             }
         }
     }

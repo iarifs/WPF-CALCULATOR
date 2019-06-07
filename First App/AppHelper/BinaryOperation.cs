@@ -8,17 +8,17 @@ namespace First_App.AppHelper
 {
     public static class BinaryOperation
     {
-        public static string GetResult(int input, NumberSystem method)
+        public static string GetResult(long input, NumberUnits method)
         {
-            if (method == NumberSystem.Binary)
+            if (method == NumberUnits.Binary)
             {
                 return Convert.ToString(input, 2);
             }
-            else if (method == NumberSystem.HexaDecimal)
+            else if (method == NumberUnits.HexaDecimal)
             {
                 return Convert.ToString(input, 16);
             }
-            else if (method == NumberSystem.Octal)
+            else if (method == NumberUnits.Octal)
             {
                 return Convert.ToString(input, 8);
             }

@@ -6,10 +6,9 @@ using System.Threading.Tasks;
 
 namespace First_App.AppHelper
 {
-    public enum NumberSystem
+    public enum PercentUnits
     {
-        Binary,
-        HexaDecimal,
-        Octal
+        Percent,
+        Decimal
     }
 }
