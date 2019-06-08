@@ -6,11 +6,10 @@ using System.Threading.Tasks;
 
 namespace First_App.AppHelper
 {
-    public static class WeightMethodString
+    public static class WeightUnitAsString
     {
         public static string GetResult(WeightUnits method)
         {
-
             if (method == WeightUnits.Kilograms)
             {
                 return "kg";

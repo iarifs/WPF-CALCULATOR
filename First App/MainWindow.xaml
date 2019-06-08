@@ -96,10 +96,10 @@
                     <GradientStop Color="White" Offset="1"/>
                 </LinearGradientBrush>
             </ComboBox.Background>
-            <ComboBoxItem Tag="Percent" Height="24" Background="#FF0D4AF0" Foreground="#FFF7F7F7">
+            <ComboBoxItem Tag="Percent" Height="24">
                 Percent
             </ComboBoxItem>
-            <ComboBoxItem Tag="Decimal" Height="24" Background="#FFF73232">
+            <ComboBoxItem Tag="Decimal" Height="24" >
                 Decimal
             </ComboBoxItem>
         </ComboBox>
@@ -160,8 +160,7 @@
                 Pound
             </ComboBoxItem>
         </ComboBox>
-
-        <ComboBox  SelectedIndex="1" x:Name="ToWeight" Grid.Column="3" Visibility="Hidden" HorizontalAlignment="Left" Margin="144,200,0,0" Width="76" Panel.ZIndex="2" FontFamily="Times New Roman" RenderTransformOrigin="0.495,0.5" Foreground="#FF002C44" SelectionChanged="ToWeightUnit" Height="33" VerticalAlignment="Top" Grid.RowSpan="2" Grid.ColumnSpan="2">
+        <ComboBox  SelectedIndex="2" x:Name="ToWeight" Grid.Column="3" Visibility="Hidden" HorizontalAlignment="Left" Margin="25,199,0,0" Width="75" Panel.ZIndex="2" FontFamily="Times New Roman" RenderTransformOrigin="0.495,0.5" Foreground="#FF002C44" SelectionChanged="FromWeigthUnit" Height="35" VerticalAlignment="Top" Grid.RowSpan="2">
             <ComboBox.Background>
                 <LinearGradientBrush EndPoint="0,1" StartPoint="0,0">
                     <GradientStop Color="#FFF0F0F0" Offset="0"/>
@@ -182,6 +181,104 @@
             </ComboBoxItem>
             <ComboBoxItem Tag="Pound" Height="20">
                 Pound
+            </ComboBoxItem>
+        </ComboBox>
+
+        <ComboBox  SelectedIndex="2" x:Name="ToLength" Grid.Column="4" Visibility="Hidden" HorizontalAlignment="Left" Margin="0,200,0,0" Width="74" Panel.ZIndex="2" FontFamily="Times New Roman" RenderTransformOrigin="0.495,0.5" Foreground="#FF002C44" SelectionChanged="ToLengthUnit" Height="33" VerticalAlignment="Top" Grid.RowSpan="2">
+            <ComboBox.Background>
+                <LinearGradientBrush EndPoint="0,1" StartPoint="0,0">
+                    <GradientStop Color="#FFF0F0F0" Offset="0"/>
+                    <GradientStop Color="White" Offset="1"/>
+                </LinearGradientBrush>
+            </ComboBox.Background>
+            <ComboBoxItem Tag="Millimetre" Height="24">
+                Millimetre
+            </ComboBoxItem>
+            <ComboBoxItem Tag="Centimeter" Height="24">
+                Centimeter
+            </ComboBoxItem>
+            <ComboBoxItem Tag="Meter" Height="20">
+                Meter
+            </ComboBoxItem>
+            <ComboBoxItem Tag="Kilometer" Height="20">
+                Kilometer
+            </ComboBoxItem>
+            <ComboBoxItem Tag="Inch" Height="20">
+                Inch
+            </ComboBoxItem>
+            <ComboBoxItem Tag="Feet" Height="20">
+                Feet
+            </ComboBoxItem>
+        </ComboBox> <ComboBox  SelectedIndex="2" x:Name="ToFile" Grid.Column="4" Visibility="Hidden" HorizontalAlignment="Left" Margin="0,200,0,0" Width="74" Panel.ZIndex="2" FontFamily="Times New Roman" RenderTransformOrigin="0.495,0.5" Foreground="#FF002C44" SelectionChanged="ToFileUnit" Height="33" VerticalAlignment="Top" Grid.RowSpan="2">
+            <ComboBox.Background>
+                <LinearGradientBrush EndPoint="0,1" StartPoint="0,0">
+                    <GradientStop Color="#FFF0F0F0" Offset="0"/>
+                    <GradientStop Color="White" Offset="1"/>
+                </LinearGradientBrush>
+            </ComboBox.Background>
+            <ComboBoxItem Tag="Byte" Height="24">
+                Byte
+            </ComboBoxItem>
+            <ComboBoxItem Tag="Kilobyte" Height="24">
+                Kilobyte
+            </ComboBoxItem>
+            <ComboBoxItem Tag="Megabyte" Height="20">
+                Megabyte
+            </ComboBoxItem>
+            <ComboBoxItem Tag="Gigabyte" Height="20">
+                Gigabyte
+            </ComboBoxItem>
+            <ComboBoxItem Tag="Terabyte" Height="20">
+                Terabyte
+            </ComboBoxItem>
+        </ComboBox>
+
+        <ComboBox  SelectedIndex="3" x:Name="FromLength" Visibility="Hidden" HorizontalAlignment="Left" Margin="21,200,0,0" Width="76" Panel.ZIndex="2" FontFamily="Times New Roman" RenderTransformOrigin="0.495,0.5" Foreground="#FF002C44" SelectionChanged="FromLengthUnit" Height="33" VerticalAlignment="Top" Grid.RowSpan="2" Grid.Column="3">
+            <ComboBox.Background>
+                <LinearGradientBrush EndPoint="0,1" StartPoint="0,0">
+                    <GradientStop Color="#FFF0F0F0" Offset="0"/>
+                    <GradientStop Color="White" Offset="1"/>
+                </LinearGradientBrush>
+            </ComboBox.Background>
+            <ComboBoxItem Tag="Millimetre" Height="24">
+                Millimetre
+            </ComboBoxItem>
+            <ComboBoxItem Tag="Centimeter" Height="24">
+                Centimeter
+            </ComboBoxItem>
+            <ComboBoxItem Tag="Meter" Height="20">
+                Meter
+            </ComboBoxItem>
+            <ComboBoxItem Tag="Kilometer" Height="20">
+                Kilometer
+            </ComboBoxItem>
+            <ComboBoxItem Tag="Inch" Height="20">
+                Inch
+            </ComboBoxItem>
+            <ComboBoxItem Tag="Feet" Height="20">
+                Feet
+            </ComboBoxItem>
+        </ComboBox>    <ComboBox  SelectedIndex="3" x:Name="FromFile" Visibility="Hidden" HorizontalAlignment="Left" Margin="21,200,0,0" Width="76" Panel.ZIndex="2" FontFamily="Times New Roman" RenderTransformOrigin="0.495,0.5" Foreground="#FF002C44" SelectionChanged="FromFileUnit" Height="33" VerticalAlignment="Top" Grid.RowSpan="2" Grid.Column="3">
+            <ComboBox.Background>
+                <LinearGradientBrush EndPoint="0,1" StartPoint="0,0">
+                    <GradientStop Color="#FFF0F0F0" Offset="0"/>
+                    <GradientStop Color="White" Offset="1"/>
+                </LinearGradientBrush>
+            </ComboBox.Background>
+            <ComboBoxItem Tag="Byte" Height="24">
+                Byte
+            </ComboBoxItem>
+            <ComboBoxItem Tag="Kilobyte" Height="24">
+                Kilobyte
+            </ComboBoxItem>
+            <ComboBoxItem Tag="Megabyte" Height="20">
+                Megabyte
+            </ComboBoxItem>
+            <ComboBoxItem Tag="Gigabyte" Height="20">
+                Gigabyte
+            </ComboBoxItem>
+            <ComboBoxItem Tag="Terabyte" Height="20">
+                Terabyte
             </ComboBoxItem>
         </ComboBox>
     </Grid>

@@ -7,15 +7,15 @@ using System.Threading.Tasks;
 
 namespace First_App.AppHelper
 {
-    public static class WeightOperations
+    public static class LengthOperations
     {
-        public static string GetResult(string input, WeightUnits form, WeightUnits to)
+        public static string GetResult(string input, LengthUnits from, LengthUnits to)
         {
-            var weightForm = WeightUnitAsString.GetResult(form);
-            var weightTo = WeightUnitAsString.GetResult(to);
+            var convertFrom = LengthUnitAsString.GetResult(from);
+            var convertTo = LengthUnitAsString.GetResult(to);
 
             //convert input to mxParser string;
-            input = $"{input}*[{weightForm}] / [{weightTo}]";
+            input = $"{input}*[{convertFrom}] / [{convertTo}]";
 
             Expression e = new Expression(input);
             return e.calculate().ToString();

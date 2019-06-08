@@ -68,6 +68,12 @@
     </Compile>
     <Compile Include="AppHelper\BinaryOperation.cs" />
     <Compile Include="AppHelper\CalculateOperations.cs" />
+    <Compile Include="AppHelper\FileOperations.cs" />
+    <Compile Include="AppHelper\FileUnitAsString.cs" />
+    <Compile Include="AppHelper\FileUnits.cs" />
+    <Compile Include="AppHelper\LengthOperations.cs" />
+    <Compile Include="AppHelper\LengthUnitAsString.cs" />
+    <Compile Include="AppHelper\LengthUnits.cs" />
     <Compile Include="AppHelper\NumberUnits.cs" />
     <Compile Include="AppHelper\OperationsUnit.cs" />
     <Compile Include="AppHelper\PercentUnits.cs" />
@@ -75,7 +81,7 @@
     <Compile Include="AppHelper\TemperatureOperations.cs" />
     <Compile Include="AppHelper\TemperatureUnits.cs" />
     <Compile Include="AppHelper\WeightUnits.cs" />
-    <Compile Include="AppHelper\WeightMethodString.cs" />
+    <Compile Include="AppHelper\WeightUnitAsString.cs" />
     <Compile Include="AppHelper\WeightOperations.cs" />
     <Compile Include="MainWindow.xaml.cs">
       <DependentUpon>MainWindow.xaml</DependentUpon>
