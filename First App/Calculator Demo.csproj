@@ -80,6 +80,9 @@
     <Compile Include="AppHelper\PercentOperation.cs" />
     <Compile Include="AppHelper\TemperatureOperations.cs" />
     <Compile Include="AppHelper\TemperatureUnits.cs" />
+    <Compile Include="AppHelper\TimeOperations.cs" />
+    <Compile Include="AppHelper\TimeUnits.cs" />
+    <Compile Include="AppHelper\TimeUnitsAsString.cs" />
     <Compile Include="AppHelper\WeightUnits.cs" />
     <Compile Include="AppHelper\WeightUnitAsString.cs" />
     <Compile Include="AppHelper\WeightOperations.cs" />

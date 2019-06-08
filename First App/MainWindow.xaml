@@ -122,7 +122,7 @@
             </ComboBoxItem>
         </ComboBox>
 
-        <ComboBox  SelectedIndex="0" x:Name="Temperature" Grid.Column="3" Visibility="Hidden" HorizontalAlignment="Left" Margin="126,200,0,0" Width="94" Grid.ColumnSpan="2" Panel.ZIndex="2" FontFamily="Times New Roman" RenderTransformOrigin="0.495,0.5" Foreground="#FF002C44" SelectionChanged="ChangeTUnit" Height="33" VerticalAlignment="Top" Grid.RowSpan="2">
+        <ComboBox  SelectedIndex="0" x:Name="Temperature" Grid.Column="3" Visibility="Hidden" HorizontalAlignment="Left" Margin="126,200,0,0" Width="94" Grid.ColumnSpan="2" Panel.ZIndex="2" FontFamily="Times New Roman" RenderTransformOrigin="0.495,0.5" Foreground="#FF002C44" SelectionChanged="ChangeTemperature" Height="33" VerticalAlignment="Top" Grid.RowSpan="2">
             <ComboBox.Background>
                 <LinearGradientBrush EndPoint="0,1" StartPoint="0,0">
                     <GradientStop Color="#FFF0F0F0" Offset="0"/>
@@ -137,7 +137,7 @@
             </ComboBoxItem>
         </ComboBox>
 
-        <ComboBox  SelectedIndex="2" x:Name="FromWeight" Grid.Column="3" Visibility="Hidden" HorizontalAlignment="Left" Margin="25,199,0,0" Width="75" Panel.ZIndex="2" FontFamily="Times New Roman" RenderTransformOrigin="0.495,0.5" Foreground="#FF002C44" SelectionChanged="FromWeigthUnit" Height="35" VerticalAlignment="Top" Grid.RowSpan="2">
+        <ComboBox  SelectedIndex="2" x:Name="FromWeight" Grid.Column="3" Visibility="Hidden" HorizontalAlignment="Left" Margin="25,199,0,0" Width="75" Panel.ZIndex="2" FontFamily="Times New Roman" RenderTransformOrigin="0.495,0.5" Foreground="#FF002C44" SelectionChanged="ChangeFromWeight" Height="35" VerticalAlignment="Top" Grid.RowSpan="2">
             <ComboBox.Background>
                 <LinearGradientBrush EndPoint="0,1" StartPoint="0,0">
                     <GradientStop Color="#FFF0F0F0" Offset="0"/>
@@ -160,7 +160,7 @@
                 Pound
             </ComboBoxItem>
         </ComboBox>
-        <ComboBox  SelectedIndex="2" x:Name="ToWeight" Grid.Column="3" Visibility="Hidden" HorizontalAlignment="Left" Margin="25,199,0,0" Width="75" Panel.ZIndex="2" FontFamily="Times New Roman" RenderTransformOrigin="0.495,0.5" Foreground="#FF002C44" SelectionChanged="FromWeigthUnit" Height="35" VerticalAlignment="Top" Grid.RowSpan="2">
+        <ComboBox  SelectedIndex="2" x:Name="ToWeight" Grid.Column="3" Visibility="Hidden" HorizontalAlignment="Left" Margin="25,199,0,0" Width="75" Panel.ZIndex="2" FontFamily="Times New Roman" RenderTransformOrigin="0.495,0.5" Foreground="#FF002C44" SelectionChanged="ChangeToWeight" Height="35" VerticalAlignment="Top" Grid.RowSpan="2">
             <ComboBox.Background>
                 <LinearGradientBrush EndPoint="0,1" StartPoint="0,0">
                     <GradientStop Color="#FFF0F0F0" Offset="0"/>
@@ -184,7 +184,7 @@
             </ComboBoxItem>
         </ComboBox>
 
-        <ComboBox  SelectedIndex="2" x:Name="ToLength" Grid.Column="4" Visibility="Hidden" HorizontalAlignment="Left" Margin="0,200,0,0" Width="74" Panel.ZIndex="2" FontFamily="Times New Roman" RenderTransformOrigin="0.495,0.5" Foreground="#FF002C44" SelectionChanged="ToLengthUnit" Height="33" VerticalAlignment="Top" Grid.RowSpan="2">
+        <ComboBox  SelectedIndex="2" x:Name="ToLength" Grid.Column="4" Visibility="Hidden" HorizontalAlignment="Left" Margin="0,200,0,0" Width="74" Panel.ZIndex="2" FontFamily="Times New Roman" RenderTransformOrigin="0.495,0.5" Foreground="#FF002C44" SelectionChanged="ChangeToLenght" Height="33" VerticalAlignment="Top" Grid.RowSpan="2">
             <ComboBox.Background>
                 <LinearGradientBrush EndPoint="0,1" StartPoint="0,0">
                     <GradientStop Color="#FFF0F0F0" Offset="0"/>
@@ -209,7 +209,8 @@
             <ComboBoxItem Tag="Feet" Height="20">
                 Feet
             </ComboBoxItem>
-        </ComboBox> <ComboBox  SelectedIndex="2" x:Name="ToFile" Grid.Column="4" Visibility="Hidden" HorizontalAlignment="Left" Margin="0,200,0,0" Width="74" Panel.ZIndex="2" FontFamily="Times New Roman" RenderTransformOrigin="0.495,0.5" Foreground="#FF002C44" SelectionChanged="ToFileUnit" Height="33" VerticalAlignment="Top" Grid.RowSpan="2">
+        </ComboBox>
+        <ComboBox  SelectedIndex="2" x:Name="ToFile" Grid.Column="4" Visibility="Hidden" HorizontalAlignment="Left" Margin="0,200,0,0" Width="74" Panel.ZIndex="2" FontFamily="Times New Roman" RenderTransformOrigin="0.495,0.5" Foreground="#FF002C44" SelectionChanged="ChangeToFile" Height="33" VerticalAlignment="Top" Grid.RowSpan="2">
             <ComboBox.Background>
                 <LinearGradientBrush EndPoint="0,1" StartPoint="0,0">
                     <GradientStop Color="#FFF0F0F0" Offset="0"/>
@@ -232,8 +233,25 @@
                 Terabyte
             </ComboBoxItem>
         </ComboBox>
+        <ComboBox  SelectedIndex="0" x:Name="ToTime" Grid.Column="4" Visibility="Hidden" HorizontalAlignment="Left" Margin="0,200,0,0" Width="74" Panel.ZIndex="2" FontFamily="Times New Roman" RenderTransformOrigin="0.495,0.5" Foreground="#FF002C44" SelectionChanged="ChangToTime" Height="33" VerticalAlignment="Top" Grid.RowSpan="2">
+            <ComboBox.Background>
+                <LinearGradientBrush EndPoint="0,1" StartPoint="0,0">
+                    <GradientStop Color="#FFF0F0F0" Offset="0"/>
+                    <GradientStop Color="White" Offset="1"/>
+                </LinearGradientBrush>
+            </ComboBox.Background>
+            <ComboBoxItem Tag="Second" Height="24">
+                Second
+            </ComboBoxItem>
+            <ComboBoxItem Tag="Minute" Height="24">
+                Minute
+            </ComboBoxItem>
+            <ComboBoxItem Tag="Hour" Height="20">
+                Hour
+            </ComboBoxItem>
+        </ComboBox>
 
-        <ComboBox  SelectedIndex="3" x:Name="FromLength" Visibility="Hidden" HorizontalAlignment="Left" Margin="21,200,0,0" Width="76" Panel.ZIndex="2" FontFamily="Times New Roman" RenderTransformOrigin="0.495,0.5" Foreground="#FF002C44" SelectionChanged="FromLengthUnit" Height="33" VerticalAlignment="Top" Grid.RowSpan="2" Grid.Column="3">
+        <ComboBox  SelectedIndex="3" x:Name="FromLength" Visibility="Hidden" HorizontalAlignment="Left" Margin="21,200,0,0" Width="76" Panel.ZIndex="2" FontFamily="Times New Roman" RenderTransformOrigin="0.495,0.5" Foreground="#FF002C44" SelectionChanged="ChangeFromLength" Height="33" VerticalAlignment="Top" Grid.RowSpan="2" Grid.Column="3">
             <ComboBox.Background>
                 <LinearGradientBrush EndPoint="0,1" StartPoint="0,0">
                     <GradientStop Color="#FFF0F0F0" Offset="0"/>
@@ -258,7 +276,8 @@
             <ComboBoxItem Tag="Feet" Height="20">
                 Feet
             </ComboBoxItem>
-        </ComboBox>    <ComboBox  SelectedIndex="3" x:Name="FromFile" Visibility="Hidden" HorizontalAlignment="Left" Margin="21,200,0,0" Width="76" Panel.ZIndex="2" FontFamily="Times New Roman" RenderTransformOrigin="0.495,0.5" Foreground="#FF002C44" SelectionChanged="FromFileUnit" Height="33" VerticalAlignment="Top" Grid.RowSpan="2" Grid.Column="3">
+        </ComboBox>
+        <ComboBox  SelectedIndex="3" x:Name="FromFile" Visibility="Hidden" HorizontalAlignment="Left" Margin="21,200,0,0" Width="76" Panel.ZIndex="2" FontFamily="Times New Roman" RenderTransformOrigin="0.495,0.5" Foreground="#FF002C44" SelectionChanged="ChangeFromFile" Height="33" VerticalAlignment="Top" Grid.RowSpan="2" Grid.Column="3">
             <ComboBox.Background>
                 <LinearGradientBrush EndPoint="0,1" StartPoint="0,0">
                     <GradientStop Color="#FFF0F0F0" Offset="0"/>
@@ -279,6 +298,23 @@
             </ComboBoxItem>
             <ComboBoxItem Tag="Terabyte" Height="20">
                 Terabyte
+            </ComboBoxItem>
+        </ComboBox>
+        <ComboBox  SelectedIndex="1" x:Name="FromTime" Visibility="Hidden" HorizontalAlignment="Left" Margin="21,200,0,0" Width="76" Panel.ZIndex="2" FontFamily="Times New Roman" RenderTransformOrigin="0.495,0.5" Foreground="#FF002C44" SelectionChanged="ChangeFromTime" Height="33" VerticalAlignment="Top" Grid.RowSpan="2" Grid.Column="3">
+            <ComboBox.Background>
+                <LinearGradientBrush EndPoint="0,1" StartPoint="0,0">
+                    <GradientStop Color="#FFF0F0F0" Offset="0"/>
+                    <GradientStop Color="White" Offset="1"/>
+                </LinearGradientBrush>
+            </ComboBox.Background>
+            <ComboBoxItem Tag="Second" Height="24">
+                Second
+            </ComboBoxItem>
+            <ComboBoxItem Tag="Minute" Height="24">
+                Minute
+            </ComboBoxItem>
+            <ComboBoxItem Tag="Hour" Height="20">
+                Hour
             </ComboBoxItem>
         </ComboBox>
     </Grid>

@@ -30,19 +30,23 @@ namespace First_App
 
         private PercentUnits SelectPercent;
 
-        private WeightUnits FromMethod;
+        private WeightUnits FromWeightUnit;
 
-        private WeightUnits ToMethod;
+        private WeightUnits ToWeightUnit;
 
-        private TemperatureUnits SelectedTUnit;
+        private TemperatureUnits TemperatureUnit;
 
-        private LengthUnits FromLUnit;
+        private LengthUnits FromLengthUnit;
 
         private LengthUnits ToLUnit;
 
-        private FileUnits FromFUnit;
+        private FileUnits FromFileUnit;
 
-        private FileUnits ToFUnit;
+        private FileUnits ToFileUnit;
+
+        private TimeUnits FromTimeUnit;
+
+        private TimeUnits ToTimeUnit;
 
         public MainWindow()
         {
@@ -148,19 +152,23 @@ namespace First_App
                     }
                     else if (CurrentMenu == OperationsUnit.Weight)
                     {
-                        screen.Content = WeightOperations.GetResult(screenContent, FromMethod, ToMethod);
+                        screen.Content = WeightOperations.GetResult(screenContent, FromWeightUnit, ToWeightUnit);
                     }
                     else if (CurrentMenu == OperationsUnit.Temperature)
                     {
-                        screen.Content = TemperatureOperations.GetResult(screenContent, SelectedTUnit);
+                        screen.Content = TemperatureOperations.GetResult(screenContent, TemperatureUnit);
                     }
                     else if (CurrentMenu == OperationsUnit.Length)
                     {
-                        screen.Content = LengthOperations.GetResult(screenContent, FromLUnit, ToLUnit);
+                        screen.Content = LengthOperations.GetResult(screenContent, FromLengthUnit, ToLUnit);
                     }
                     else if (CurrentMenu == OperationsUnit.File)
                     {
-                        screen.Content = FileOperations.GetResult(screenContent, FromFUnit, ToFUnit);
+                        screen.Content = FileOperations.GetResult(screenContent, FromFileUnit, ToFileUnit);
+                    }
+                    else if (CurrentMenu == OperationsUnit.Time)
+                    {
+                        screen.Content = TimeOperations.GetResult(screenContent, FromTimeUnit, ToTimeUnit);
                     }
 
                 }
@@ -226,14 +234,7 @@ namespace First_App
         {
             var input = ((Button)sender).Tag.ToString();
 
-            seletlist.Visibility = Visibility.Collapsed;
-            percentOrDecimal.Visibility = Visibility.Collapsed;
-            ToWeight.Visibility = Visibility.Collapsed;
-            FromWeight.Visibility = Visibility.Collapsed;
-            ToLength.Visibility = Visibility.Collapsed;
-            FromLength.Visibility = Visibility.Collapsed;
-            FromFile.Visibility = Visibility.Collapsed;
-            ToFile.Visibility = Visibility.Collapsed;
+            MakeEverythingHidden();
 
             if (input == OperationsUnit.Decimal.ToString())
             {
@@ -267,21 +268,32 @@ namespace First_App
                 Temperature.Visibility = Visibility.Visible;
                 CurrentMenu = OperationsUnit.Temperature;
             }
+
             else if (input == OperationsUnit.Length.ToString())
             {
                 NavigateMenu(sender, e);
-                InitialForLengthAndFile();
+                InitialForLengthAndFileAndTime();
                 ToLength.Visibility = Visibility.Visible;
                 FromLength.Visibility = Visibility.Visible;
                 CurrentMenu = OperationsUnit.Length;
             }
+
             else if (input == OperationsUnit.File.ToString())
             {
                 NavigateMenu(sender, e);
-                InitialForLengthAndFile();
+                InitialForLengthAndFileAndTime();
                 FromFile.Visibility = Visibility.Visible;
                 ToFile.Visibility = Visibility.Visible;
                 CurrentMenu = OperationsUnit.File;
+            }
+
+            else if (input == OperationsUnit.Time.ToString())
+            {
+                NavigateMenu(sender, e);
+                InitialForLengthAndFileAndTime();
+                ToTime.Visibility = Visibility.Visible;
+                FromTime.Visibility = Visibility.Visible;
+                CurrentMenu = OperationsUnit.Time;
             }
         }
 
@@ -394,7 +406,7 @@ namespace First_App
             }
         }
 
-        private void InitialForLengthAndFile()
+        private void InitialForLengthAndFileAndTime()
         {
             List<string> allowedButtons =
                 new List<string>
@@ -452,102 +464,102 @@ namespace First_App
             }
         }
 
-        private void FromWeigthUnit(object sender, SelectionChangedEventArgs e)
+        private void ChangeFromWeight(object sender, SelectionChangedEventArgs e)
         {
             var selectedIndex = FromWeight.SelectedIndex;
 
             if (selectedIndex == 0)
             {
-                FromMethod = WeightUnits.Milligrams;
+                FromWeightUnit = WeightUnits.Milligrams;
             }
             else if (selectedIndex == 1)
             {
-                FromMethod = WeightUnits.Grams;
+                FromWeightUnit = WeightUnits.Grams;
             }
             else if (selectedIndex == 2)
             {
-                FromMethod = WeightUnits.Kilograms;
+                FromWeightUnit = WeightUnits.Kilograms;
             }
             else if (selectedIndex == 3)
             {
-                FromMethod = WeightUnits.Ounces;
+                FromWeightUnit = WeightUnits.Ounces;
             }
             else if (selectedIndex == 4)
             {
-                FromMethod = WeightUnits.Pounds;
+                FromWeightUnit = WeightUnits.Pounds;
             }
         }
 
-        private void ToWeightUnit(object sender, SelectionChangedEventArgs e)
+        private void ChangeToWeight(object sender, SelectionChangedEventArgs e)
         {
             var selectedIndex = ToWeight.SelectedIndex;
 
             if (selectedIndex == 0)
             {
-                ToMethod = WeightUnits.Milligrams;
+                ToWeightUnit = WeightUnits.Milligrams;
             }
             else if (selectedIndex == 1)
             {
-                ToMethod = WeightUnits.Grams;
+                ToWeightUnit = WeightUnits.Grams;
             }
             else if (selectedIndex == 2)
             {
-                ToMethod = WeightUnits.Kilograms;
+                ToWeightUnit = WeightUnits.Kilograms;
             }
             else if (selectedIndex == 3)
             {
-                ToMethod = WeightUnits.Ounces;
+                ToWeightUnit = WeightUnits.Ounces;
             }
             else if (selectedIndex == 4)
             {
-                ToMethod = WeightUnits.Pounds;
+                ToWeightUnit = WeightUnits.Pounds;
             }
         }
 
-        private void ChangeTUnit(object sender, SelectionChangedEventArgs e)
+        private void ChangeTemperature(object sender, SelectionChangedEventArgs e)
         {
             var Tselected = Temperature.SelectedIndex;
             if (Tselected == 0)
             {
-                SelectedTUnit = TemperatureUnits.Celsius;
+                TemperatureUnit = TemperatureUnits.Celsius;
             }
             else if (Tselected == 1)
             {
-                SelectedTUnit = TemperatureUnits.Fahrenheit;
+                TemperatureUnit = TemperatureUnits.Fahrenheit;
             }
         }
 
-        private void FromLengthUnit(object sender, SelectionChangedEventArgs e)
+        private void ChangeFromLength(object sender, SelectionChangedEventArgs e)
         {
             var selectedIndex = FromLength.SelectedIndex;
 
             if (selectedIndex == 0)
             {
-                FromLUnit = LengthUnits.Millimeter;
+                FromLengthUnit = LengthUnits.Millimeter;
             }
             else if (selectedIndex == 1)
             {
-                FromLUnit = LengthUnits.Centimeter;
+                FromLengthUnit = LengthUnits.Centimeter;
             }
             else if (selectedIndex == 2)
             {
-                FromLUnit = LengthUnits.Meter;
+                FromLengthUnit = LengthUnits.Meter;
             }
             else if (selectedIndex == 3)
             {
-                FromLUnit = LengthUnits.Kilometer;
+                FromLengthUnit = LengthUnits.Kilometer;
             }
             else if (selectedIndex == 4)
             {
-                FromLUnit = LengthUnits.Inch;
+                FromLengthUnit = LengthUnits.Inch;
             }
             else if (selectedIndex == 5)
             {
-                FromLUnit = LengthUnits.Feet;
+                FromLengthUnit = LengthUnits.Feet;
             }
         }
 
-        private void ToLengthUnit(object sender, SelectionChangedEventArgs e)
+        private void ChangeToLenght(object sender, SelectionChangedEventArgs e)
         {
             var selectedIndex = ToLength.SelectedIndex;
 
@@ -577,56 +589,106 @@ namespace First_App
             }
         }
 
-        private void FromFileUnit(object sender, SelectionChangedEventArgs e)
+        private void ChangeFromFile(object sender, SelectionChangedEventArgs e)
         {
             var selectedIndex = FromFile.SelectedIndex;
 
             if (selectedIndex == 0)
             {
-                FromFUnit = FileUnits.Byte;
+                FromFileUnit = FileUnits.Byte;
             }
             else if (selectedIndex == 1)
             {
-                FromFUnit = FileUnits.Kilobyte;
+                FromFileUnit = FileUnits.Kilobyte;
             }
             else if (selectedIndex == 2)
             {
-                FromFUnit = FileUnits.Megabyte;
+                FromFileUnit = FileUnits.Megabyte;
             }
             else if (selectedIndex == 3)
             {
-                FromFUnit = FileUnits.Gigabyte;
+                FromFileUnit = FileUnits.Gigabyte;
             }
             else if (selectedIndex == 4)
             {
-                FromFUnit = FileUnits.Terabyte;
+                FromFileUnit = FileUnits.Terabyte;
             }
         }
 
-        private void ToFileUnit(object sender, SelectionChangedEventArgs e)
+        private void ChangeToFile(object sender, SelectionChangedEventArgs e)
         {
             var selectedIndex = ToFile.SelectedIndex;
 
             if (selectedIndex == 0)
             {
-                ToFUnit = FileUnits.Byte;
+                ToFileUnit = FileUnits.Byte;
             }
             else if (selectedIndex == 1)
             {
-                ToFUnit = FileUnits.Kilobyte;
+                ToFileUnit = FileUnits.Kilobyte;
             }
             else if (selectedIndex == 2)
             {
-                ToFUnit = FileUnits.Megabyte;
+                ToFileUnit = FileUnits.Megabyte;
             }
             else if (selectedIndex == 3)
             {
-                ToFUnit = FileUnits.Gigabyte;
+                ToFileUnit = FileUnits.Gigabyte;
             }
             else if (selectedIndex == 4)
             {
-                ToFUnit = FileUnits.Terabyte;
+                ToFileUnit = FileUnits.Terabyte;
             }
+        }
+
+        private void ChangToTime(object sender, SelectionChangedEventArgs e)
+        {
+            var selectedIndex = ToTime.SelectedIndex;
+
+            if (selectedIndex == 0)
+            {
+                ToTimeUnit = TimeUnits.Second;
+            }
+            else if (selectedIndex == 1)
+            {
+                ToTimeUnit = TimeUnits.Minute;
+            }
+            else if (selectedIndex == 2)
+            {
+                ToTimeUnit = TimeUnits.Hour;
+            }
+        }
+
+        private void ChangeFromTime(object sender, SelectionChangedEventArgs e)
+        {
+            var selectedIndex = FromTime.SelectedIndex;
+
+            if (selectedIndex == 0)
+            {
+                FromTimeUnit = TimeUnits.Second;
+            }
+            else if (selectedIndex == 1)
+            {
+                FromTimeUnit = TimeUnits.Minute;
+            }
+            else if (selectedIndex == 2)
+            {
+                FromTimeUnit = TimeUnits.Hour;
+            }
+        }
+
+        private void MakeEverythingHidden()
+        {
+            seletlist.Visibility = Visibility.Collapsed;
+            percentOrDecimal.Visibility = Visibility.Collapsed;
+            ToWeight.Visibility = Visibility.Collapsed;
+            FromWeight.Visibility = Visibility.Collapsed;
+            ToLength.Visibility = Visibility.Collapsed;
+            FromLength.Visibility = Visibility.Collapsed;
+            FromFile.Visibility = Visibility.Collapsed;
+            ToFile.Visibility = Visibility.Collapsed;
+            ToTime.Visibility = Visibility.Collapsed;
+            FromTime.Visibility = Visibility.Collapsed;
         }
     }
 }
