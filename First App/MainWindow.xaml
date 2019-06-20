@@ -137,7 +137,7 @@
             </ComboBoxItem>
         </ComboBox>
 
-        <ComboBox  SelectedIndex="2" x:Name="FromWeight" Grid.Column="3" Visibility="Hidden" HorizontalAlignment="Left" Margin="25,199,0,0" Width="75" Panel.ZIndex="2" FontFamily="Times New Roman" RenderTransformOrigin="0.495,0.5" Foreground="#FF002C44" SelectionChanged="ChangeFromWeight" Height="35" VerticalAlignment="Top" Grid.RowSpan="2">
+        <ComboBox  SelectedIndex="2" SelectedValuePath="Tag" x:Name="FromWeight" Grid.Column="3" Visibility="Hidden" HorizontalAlignment="Left" Margin="25,199,0,0" Width="75" Panel.ZIndex="2" FontFamily="Times New Roman" RenderTransformOrigin="0.495,0.5" Foreground="#FF002C44" SelectionChanged="ChangeFromWeight" Height="35" VerticalAlignment="Top" Grid.RowSpan="2">
             <ComboBox.Background>
                 <LinearGradientBrush EndPoint="0,1" StartPoint="0,0">
                     <GradientStop Color="#FFF0F0F0" Offset="0"/>
